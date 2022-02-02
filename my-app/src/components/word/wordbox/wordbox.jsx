@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, {css} from 'styled-components'
 
-const Letter = styled.button`
+const Button = styled.button`
     background: transparent;
     border-radius: 0px;
     border: 1.5px solid black;
@@ -15,14 +15,13 @@ const Letter = styled.button`
     ${props =>
         props.hidden &&
         css`
-          visibility: hidden;
-        `};
+    `};
 `
 
 class LetterBox extends React.Component {
-    render() {
+    render () {
         return (
-            <Letter>{this.props.letter}</Letter>
+            <Button>{this.props.letter}</Button>
         );
     }
 }
