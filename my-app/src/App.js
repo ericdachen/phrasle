@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import './components/keyboard/keyboard'
 import KeyBoard from './components/keyboard/keyboard';
