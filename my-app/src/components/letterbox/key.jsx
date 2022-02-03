@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './key.css';
 import styled, {css} from 'styled-components'
 
@@ -21,12 +20,10 @@ const Button = styled.button`
     `};
 `
 
-class Key extends React.Component {
-    render () {
+function Key(props) {
         return (
-            <Button>{this.props.letter}</Button>
-        );
-    }
-}
+            <Button>{props.letter}</Button>
+        );  
+  }
 
 export default Key;

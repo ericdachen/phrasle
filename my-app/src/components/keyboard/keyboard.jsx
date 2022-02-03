@@ -8,8 +8,7 @@ const Row = styled.div`
 `
 
 
-class KeyBoard extends React.Component {
-    render() {
+function KeyBoard() {
         return (
             <div className='keyboard'>
                 <Row>
@@ -50,6 +49,5 @@ class KeyBoard extends React.Component {
 
         )
     }
-}
 
 export default KeyBoard;

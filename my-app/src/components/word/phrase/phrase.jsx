@@ -7,31 +7,29 @@ const Row = styled.div`
   text-align: center;
 `
 
-class PhraseBoard extends React.Component {
-    render() {
+function PhraseBoard() {
         return (
             //TODO .map this using stuff from dictionary
             <Row>
             <LetterBox letter="G"/>
             <LetterBox letter="O"/>
-            <LetterBox letter=""/>
+            <LetterBox letter="" empty="true"/>
             <LetterBox letter="B"/>
             <LetterBox letter="I"/>
             <LetterBox letter="G"/>
-            <LetterBox letter=""/>
+            <LetterBox letter="" empty="true"/>
             <LetterBox letter="O"/>
             <LetterBox letter="R"/>
-            <LetterBox letter=""/>
+            <LetterBox letter="" empty="true"/>
             <LetterBox letter="G"/>
             <LetterBox letter="O"/>
-            <LetterBox letter=""/>
+            <LetterBox letter="" empty="true"/>
             <LetterBox letter="H"/>
             <LetterBox letter="O"/>
             <LetterBox letter="M"/>
             <LetterBox letter="E"/>
             </Row>
         );
-    }
 }
 
 export default PhraseBoard;
