@@ -1,2 +1,2 @@
-# phrasele
+# phrasle
 Wordle but phrases
