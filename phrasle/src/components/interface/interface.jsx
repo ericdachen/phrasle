@@ -1,54 +1,51 @@
 import PhraseBoard from "../word/phrase/phrase";
-import styled, {css} from 'styled-components'
-import React, {useState} from 'react';
+import styled, { css } from "styled-components";
+import React, { useState } from "react";
 import Key from "../letterbox/key";
 
 const Row = styled.div`
   text-align: center;
-`
-
+`;
 
 function Interface() {
-    return (
-        <div>
-            <PhraseBoard/>
-            <Row>
-                <Key letter="Q"/>
-                <Key letter="W"/>
-                <Key letter="E"/>
-                <Key letter="R"/>
-                <Key letter="T"/>
-                <Key letter="Y"/>
-                <Key letter="U"/>
-                <Key letter="I"/>
-                <Key letter="O"/>
-                <Key letter="P"/>
-            </Row>
-            <Row>
-                <Key letter="A"/>
-                <Key letter="S"/>
-                <Key letter="D"/>
-                <Key letter="F"/>
-                <Key letter="G"/>
-                <Key letter="H"/>
-                <Key letter="J"/>
-                <Key letter="K"/>
-                <Key letter="L"/>
-            </Row>
-            <Row>
-                <Key letter="Enter"/>
-                <Key letter="Z"/>
-                <Key letter="X"/>
-                <Key letter="C"/>
-                <Key letter="V"/>
-                <Key letter="B"/>
-                <Key letter="N"/>
-                <Key letter="M"/>
-                <Key letter="Delete"/>
-            </Row>
-        </div>
+  const [guess, setGuess] = useState("");
 
-    )
+  const topRow = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];
+  const midRow = ["A", "S", "D", "F", "G", "H", "J", "K", "L"];
+  const botRow = ["Z", "X", "C", "V", "N", "M"];
+
+  function handleKey(e) {
+    alert("Wassup");
+  }
+
+  function handleEnter(e) {
+    console.log("Wassup");
+  }
+
+  function handleDelete(e) {}
+
+  const listTop = topRow.map((val) => (
+    <Key key={val} letter={val} onClick={handleKey}></Key>
+  ));
+  const listMid = midRow.map((val) => (
+    <Key key={val} letter={val} onClick={handleKey}></Key>
+  ));
+  const listBot = botRow.map((val) => (
+    <Key key={val} letter={val} onClick={handleKey}></Key>
+  ));
+
+  return (
+    <div>
+      <PhraseBoard />
+      <Row>{listTop}</Row>
+      <Row>{listMid}</Row>
+      <Row>
+        <Key letter="Enter" onClick={handleEnter} />
+        {listBot}
+        <Key letter="Delete" onClick={handleDelete} />
+      </Row>
+    </div>
+  );
 }
 
 export default Interface;
