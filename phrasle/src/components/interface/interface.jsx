@@ -15,7 +15,8 @@ function Interface() {
   const botRow = ["Z", "X", "C", "V", "N", "M"];
 
   function handleKey(e) {
-    alert("Wassup");
+    setGuess(guess.concat(e.target.value));
+    //Still need to fix this to actually take the value
   }
 
   function handleEnter(e) {
@@ -25,13 +26,19 @@ function Interface() {
   function handleDelete(e) {}
 
   const listTop = topRow.map((val) => (
-    <Key key={val} letter={val} onClick={handleKey}></Key>
+    <span onClick={handleKey}>
+      <Key key={val} letter={val}></Key>
+    </span>
   ));
   const listMid = midRow.map((val) => (
-    <Key key={val} letter={val} onClick={handleKey}></Key>
+    <span onClick={handleKey}>
+      <Key key={val} letter={val}></Key>
+    </span>
   ));
   const listBot = botRow.map((val) => (
-    <Key key={val} letter={val} onClick={handleKey}></Key>
+    <span onClick={handleKey}>
+      <Key key={val} letter={val}></Key>
+    </span>
   ));
 
   return (
