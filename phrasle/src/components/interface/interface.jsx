@@ -29,17 +29,17 @@ function Interface() {
   }
 
   const listTop = topRow.map((val) => (
-    <span key={val} data-key={val} onClick={() => handleKey(val)}>
+    <span key={val} onClick={() => handleKey(val)}>
       <Key letter={val}></Key>
     </span>
   ));
   const listMid = midRow.map((val) => (
-    <span key={val} data-key={val} onClick={() => handleKey(val)}>
+    <span key={val} onClick={() => handleKey(val)}>
       <Key letter={val}></Key>
     </span>
   ));
   const listBot = botRow.map((val) => (
-    <span key={val} data-key={val} onClick={() => handleKey(val)}>
+    <span key={val} onClick={() => handleKey(val)}>
       <Key letter={val}></Key>
     </span>
   ));
