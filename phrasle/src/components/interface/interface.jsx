@@ -12,6 +12,7 @@ function Interface() {
     // state & other declarations***************************************
     const [guess, setGuess] = useState("");
     const [phrase, setPhrase] = useState("");
+    const [guessNumber, setGuessNumber] = useState(0);
 
     const topRow = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];
     const midRow = ["A", "S", "D", "F", "G", "H", "J", "K", "L"];
@@ -24,7 +25,10 @@ function Interface() {
         console.log(guess);
     }
 
-    function handleEnter(e) {}
+    function handleEnter(e) {
+        setGuessNumber(guessNumber + 1);
+        setGuess("");
+    }
 
     function handleDelete(e) {
         setGuess((guess) => guess.slice(0, -1));
@@ -55,18 +59,19 @@ function Interface() {
 
     return (
         <div>
-        <PhraseBoard phrase={phrase} guess={guess}/>
-        <Row>{listTop}</Row>
-        <Row>{listMid}</Row>
-        <Row>
-            <span key="Enter" onClick={handleEnter}>
-            <Key letter="Enter" />
-            </span>
-            {listBot}
-            <span key="Delete" onClick={handleDelete}>
-            <Key letter="Delete" />
-            </span>
-        </Row>
+            <PhraseBoard phrase={phrase} guess={guess} guessNumber={guessNumber}/>
+            <div>{guess}</div>
+            <Row>{listTop}</Row>
+            <Row>{listMid}</Row>
+            <Row>
+                <span key="Enter" onClick={handleEnter}>
+                <Key letter="Enter" />
+                </span>
+                {listBot}
+                <span key="Delete" onClick={handleDelete}>
+                <Key letter="Delete" />
+                </span>
+            </Row>
         </div>
     );
 }
