@@ -15,27 +15,30 @@ function Interface() {
   const botRow = ["Z", "X", "C", "V", "N", "M"];
 
   function handleKey(e) {
-    setGuess(guess.concat(e.target.value));
-    //Still need to fix this to actually take the value
+    setGuess((guess) => guess.concat(e));
+    console.log(guess);
   }
 
   function handleEnter(e) {}
 
-  function handleDelete(e) {}
+  function handleDelete(e) {
+    setGuess((guess) => guess.slice(0, -1));
+    console.log(guess);
+  }
 
   const listTop = topRow.map((val) => (
-    <span onClick={handleKey}>
-      <Key key={val} letter={val}></Key>
+    <span key={val} onClick={() => handleKey(val)}>
+      <Key letter={val}></Key>
     </span>
   ));
   const listMid = midRow.map((val) => (
-    <span onClick={handleKey}>
-      <Key key={val} letter={val}></Key>
+    <span key={val} onClick={() => handleKey(val)}>
+      <Key letter={val}></Key>
     </span>
   ));
   const listBot = botRow.map((val) => (
-    <span onClick={handleKey}>
-      <Key key={val} letter={val}></Key>
+    <span key={val} onClick={() => handleKey(val)}>
+      <Key letter={val}></Key>
     </span>
   ));
 
@@ -45,9 +48,13 @@ function Interface() {
       <Row>{listTop}</Row>
       <Row>{listMid}</Row>
       <Row>
-        <Key letter="Enter" onClick={handleEnter} />
+        <span key="Enter" onClick={handleEnter}>
+          <Key letter="Enter" />
+        </span>
         {listBot}
-        <Key letter="Delete" onClick={handleDelete} />
+        <span key="Delete" onClick={handleDelete}>
+          <Key letter="Delete" />
+        </span>
       </Row>
     </div>
   );
