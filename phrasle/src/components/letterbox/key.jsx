@@ -34,8 +34,13 @@ function Key(props) {
   const [clicked, setClicked] = useState(false);
   const [correct, setCorrect] = useState(props.phrase);
 
-  function handleClick(e) {
-    setClicked(true);
+  //This logic needs to be fixed based on the game
+  function handleClick(props) {
+    if (props === true) {
+      setClicked(false);
+    } else {
+      setClicked(true);
+    }
   }
 
   function ButtonState(props) {

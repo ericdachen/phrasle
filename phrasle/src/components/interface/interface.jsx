@@ -19,9 +19,7 @@ function Interface() {
     //Still need to fix this to actually take the value
   }
 
-  function handleEnter(e) {
-    console.log("Wassup");
-  }
+  function handleEnter(e) {}
 
   function handleDelete(e) {}
 
