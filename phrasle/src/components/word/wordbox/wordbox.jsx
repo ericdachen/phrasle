@@ -21,7 +21,7 @@ const Button = styled.button`
 `
 
 function LetterBox(props) {
-        const empty = (props.empty==="true");
+        const empty = (props.empty===true);
 
         if (empty) {
             return <Button empty>{props.letter}</Button>;
