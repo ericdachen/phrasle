@@ -11,12 +11,11 @@ const Row = styled.div`
 function Interface() {
     // state & other declarations***************************************
     const [guess, setGuess] = useState("");
+    const [phrase, setPhrase] = useState("");
 
     const topRow = ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"];
     const midRow = ["A", "S", "D", "F", "G", "H", "J", "K", "L"];
     const botRow = ["Z", "X", "C", "V", "N", "M"];
-
-    const phrase = getPhrase();
     // *****************************************************************
 
     // helper functions ************************************************
@@ -31,6 +30,10 @@ function Interface() {
         setGuess((guess) => guess.slice(0, -1));
         console.log(guess);
     }
+
+    useEffect(() => {
+        setPhrase(getPhrase());
+    }, [])
     // *****************************************************************
 
     // jsx *************************************************************
@@ -52,7 +55,7 @@ function Interface() {
 
     return (
         <div>
-        <PhraseBoard phrase={phrase}/>
+        <PhraseBoard phrase={phrase} guess={guess}/>
         <Row>{listTop}</Row>
         <Row>{listMid}</Row>
         <Row>

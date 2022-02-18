@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import styled, {css} from 'styled-components'
 import LetterBox from '../wordbox/wordbox.jsx';
 
-function PhraseBoard({ phrase }) {
+function PhraseBoard({ phrase, guess }) {
     // state & other declarations***************************************
     const phrase_chars = phrase.split('');
     // *****************************************************************
@@ -13,24 +13,45 @@ function PhraseBoard({ phrase }) {
 
 
     // jsx *************************************************************
-    let Phrase = phrase_chars.map((letter) => {
+    let Phrase = phrase_chars.map((letter, index) => {
         return(
             <LetterBox 
                 letter={letter.toUpperCase()}
                 empty={letter == ' '}
+                key={index}
+            />
+        );
+    });
+    let GuessOne = phrase_chars.map((letter, index) => {
+        return(
+            <LetterBox 
+                empty={letter == ' '}
+                key={index}
             />
         );
     });
 
     return (
-        <Row>
-          {Phrase}
-        </Row>
+        <Guesses>
+            <Row>
+                {Phrase}
+            </Row>
+            <Row>
+                {GuessOne}
+            </Row>
+        </Guesses>
     );
     // *****************************************************************
 }
 
 // styled **************************************************************
+const Guesses = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`
+
 const Row = styled.div`
     text-align: center;
 `
