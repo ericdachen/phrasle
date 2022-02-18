@@ -20,6 +20,11 @@ function Interface() {
     // *****************************************************************
 
     // helper functions ************************************************
+    useEffect(() => {
+        // this sets our phrase on load
+        setPhrase(getPhrase());
+    }, []);
+
     function handleKey(e) {
         setGuess((guess) => guess.concat(e));
         console.log(guess);
@@ -27,7 +32,6 @@ function Interface() {
 
     function handleEnter(e) {
         setGuessNumber(guessNumber + 1);
-        setGuess("");
     }
 
     function handleDelete(e) {
@@ -35,9 +39,9 @@ function Interface() {
         console.log(guess);
     }
 
-    useEffect(() => {
-        setPhrase(getPhrase());
-    }, [])
+    function resetGuess() {
+        setGuess("");
+    }
     // *****************************************************************
 
     // jsx *************************************************************
@@ -58,9 +62,14 @@ function Interface() {
     ));
 
     return (
-        <div>
-            <PhraseBoard phrase={phrase} guess={guess} guessNumber={guessNumber}/>
-            <div>{guess}</div>
+        <Game>
+            <PhraseBoard 
+                phrase={phrase} 
+                guess={guess} 
+                guessNumber={guessNumber}
+                resetGuess={resetGuess}
+            />
+            <CurrentGuess>{guess}</CurrentGuess>
             <Row>{listTop}</Row>
             <Row>{listMid}</Row>
             <Row>
@@ -72,8 +81,24 @@ function Interface() {
                 <Key letter="Delete" />
                 </span>
             </Row>
-        </div>
+        </Game>
     );
 }
 // *****************************************************************
+
+const Game = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`
+
+const CurrentGuess = styled.div`
+    border: 1px solid black;
+    height: 1rem;
+    width: 250px;
+    padding: 15px;
+    text-align: center;
+`
+
 export default Interface;
