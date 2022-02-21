@@ -1,0 +1,21 @@
+.navbar {
+	height: 35px;
+	top: 0;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.align {
+    align-items: center;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 1px 5px rgba(0,0,0,.1);
+}
+
+h1 {
+    font-size: large;
+    text-align: center;
+    padding-right: 10px;
+}
